@@ -3,6 +3,7 @@ import 'package:provide/provide.dart';
 import '../../provide/cart.dart';
 import '../../model/cart_goods.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../config/constants.dart';
 
 class CartCount extends StatelessWidget {
   final CartGoodsModel cartGoods;
@@ -37,7 +38,7 @@ class CartCount extends StatelessWidget {
           //   ),
           //   alignment: Alignment.center,
           //   decoration: BoxDecoration(
-          //     border: Border.all(width: 1, color: Colors.black12),
+          //     border: Border.all(width: 1, color: Constants.BorderColor),
           //   ),
           // ),
           _btn(
@@ -68,7 +69,7 @@ class CartCount extends StatelessWidget {
           ),
         ),
         decoration: BoxDecoration(
-          border: Border.all(width: 1, color: Colors.black12),
+          border: Border.all(width: 1, color: Constants.BorderColor),
         ),
       ),
     );
@@ -80,7 +81,7 @@ class CartCount extends StatelessWidget {
       width: ScreenUtil().setWidth(80),
       height: ScreenUtil().setHeight(40),
       decoration: BoxDecoration(
-        border: Border.all(width: 1, color: Colors.black12),
+        border: Border.all(width: 1, color: Constants.BorderColor),
       ),
       child: TextField(
         textAlign: TextAlign.center,

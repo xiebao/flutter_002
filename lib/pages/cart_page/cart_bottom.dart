@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provide/provide.dart';
 import '../../provide/cart.dart';
-
+import '../../config/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CartBottom extends StatelessWidget {
@@ -13,7 +13,7 @@ class CartBottom extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(10, 5, 5, 5),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border(top: BorderSide(width: 1, color: Colors.black12)),
+        border: Border(top: BorderSide(width: 1, color: Constants.BorderColor)),
       ),
       child: Provide<CartProvide>(
         builder: (context, child, val) {

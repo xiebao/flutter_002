@@ -6,7 +6,7 @@ import '../model/category_model.dart';
 import '../model/category_goods_model.dart';
 import '../provide/sub_category.dart';
 import '../provide/category_goods.dart';
-
+import '../config/constants.dart';
 import '../service/service_method.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -89,7 +89,7 @@ class LeftNavState extends State<LeftNav> {
       width: ScreenUtil().setWidth(200),
       decoration: BoxDecoration(
         border: Border(
-          right: BorderSide(width: 1, color: Colors.black12),
+          right: BorderSide(width: 1, color: Constants.BorderColor),
         ),
       ),
       child: ListView.builder(
@@ -121,7 +121,8 @@ class LeftNavState extends State<LeftNav> {
         ),
         decoration: BoxDecoration(
           color: isClick ? Color.fromRGBO(240, 240, 240, 1) : Colors.white,
-          border: Border(bottom: BorderSide(width: 1, color: Colors.black12)),
+          border: Border(
+              bottom: BorderSide(width: 1, color: Constants.BorderColor)),
         ),
       ),
     );
@@ -155,7 +156,7 @@ class _RightNavState extends State<RightNav> {
         height: ScreenUtil().setHeight(80),
         decoration: BoxDecoration(
           border: Border(
-            bottom: BorderSide(color: Colors.black12, width: 1),
+            bottom: BorderSide(color: Constants.BorderColor, width: 1),
           ),
         ),
         child: ListView.builder(
@@ -265,7 +266,7 @@ class _GoodsListWidgetState extends State<GoodsListWidget> {
       child: Container(
         decoration: BoxDecoration(
           border: Border(
-            bottom: BorderSide(width: 1, color: Colors.black12),
+            bottom: BorderSide(width: 1, color: Constants.BorderColor),
           ),
         ),
         child: Row(

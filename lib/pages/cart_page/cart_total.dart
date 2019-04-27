@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../model/cart_goods.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../config/constants.dart';
 
 class CartItem extends StatelessWidget {
   final CartGoodsModel cart;
@@ -16,7 +17,7 @@ class CartItem extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(15, 10, 10, 30),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border(top: BorderSide(width: 1, color: Colors.black12)),
+        border: Border(top: BorderSide(width: 1, color: Constants.BorderColor)),
       ),
       child: Row(
         children: <Widget>[

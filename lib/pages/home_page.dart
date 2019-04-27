@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import '../router/application.dart';
+import '../config/constants.dart';
 
 class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
@@ -100,8 +101,6 @@ class _HomePageState extends State<HomePage>
             }
           }),
     );
-
-    ;
   }
 }
 
@@ -277,8 +276,8 @@ class Recommend extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           border: Border(
-            left: BorderSide(width: 1, color: Colors.black12),
-            top: BorderSide(width: 1, color: Colors.black12),
+            left: BorderSide(width: 1, color: Constants.BorderColor),
+            top: BorderSide(width: 1, color: Constants.BorderColor),
           ),
         ),
         child: Column(
