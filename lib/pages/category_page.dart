@@ -296,15 +296,7 @@ class _GoodsListWidgetState extends State<GoodsListWidget> {
         }
         return Container(
           width: ScreenUtil().setWidth(550),
-          height: ScreenUtil().setHeight(820),
-
-          // child: ListView.builder(
-          //   itemCount: goodsList.length,
-          //   itemBuilder: (BuildContext context, int index) {
-          //     return _goodsItem(goodsList[index]);
-          //   },
-          // ),
-
+          height: ScreenUtil().setHeight(790),
           child: EasyRefresh(
             key: _easyRefreshKey,
             refreshFooter: ClassicsFooter(

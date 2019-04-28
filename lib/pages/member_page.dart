@@ -131,9 +131,10 @@ class MemberPage extends StatelessWidget {
     Widget __item(int codePoint, String text) {
       return Container(
         decoration: BoxDecoration(
-            border: Border(
-          bottom: BorderSide(width: 1, color: Constants.BorderColor),
-        )),
+          border: Border(
+            bottom: BorderSide(width: 1, color: Constants.BorderColor),
+          ),
+        ),
         child: ListTile(
           leading:
               Icon(IconData(codePoint, fontFamily: Constants.IconFontFamily)),
@@ -147,14 +148,20 @@ class MemberPage extends StatelessWidget {
     }
 
     return Container(
-      margin: EdgeInsets.only(top: 12),
       color: Colors.white,
       child: Column(
         children: <Widget>[
+          Container(
+            height: ScreenUtil().setHeight(10),
+            color: Constants.BackgroundColor,
+          ),
           __item(0xe62a, "领取优惠券"),
           __item(0xe62a, "已领取优惠券"),
           __item(0xe7a4, "收货地址"),
-          Container(height: 15, color: Constants.BackgroundColor),
+          Container(
+            height: ScreenUtil().setHeight(10),
+            color: Constants.BackgroundColor,
+          ),
           __item(0xe6a6, "客服电话"),
           __item(0xe602, "关于我们"),
         ],

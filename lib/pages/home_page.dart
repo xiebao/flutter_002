@@ -383,6 +383,18 @@ class HotGoods extends StatefulWidget {
 }
 
 class _HotGoodsState extends State<HotGoods> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          _hotTitile(),
+          _hotGoodsList(),
+        ],
+      ),
+    );
+  }
+
   //火爆标题
   Widget _hotTitile() {
     return Container(
@@ -395,62 +407,14 @@ class _HotGoodsState extends State<HotGoods> {
     );
   }
 
-  Widget _hotGoods(BuildContext context, Map item) {
-    Widget _priceWidget = Container(
-      padding: EdgeInsets.fromLTRB(10, 5, 0, 5),
-      color: Colors.white,
-      child: Row(
-        children: <Widget>[
-          Text("￥${item['mallPrice']}"),
-          Container(width: ScreenUtil().setWidth(70)),
-          Text(
-            "￥${item['price']}",
-            style: TextStyle(
-              color: Colors.grey,
-              decoration: TextDecoration.lineThrough,
-            ),
-          ),
-        ],
-      ),
-    );
-
-    return InkWell(
-      onTap: () {
-        print("点击了热门商品");
-        Application.router.navigateTo(context, "/detail?id=${item['goodsId']}");
-      },
-      child: Container(
-        color: Colors.white,
-        width: ScreenUtil().setWidth(372),
-        child: Column(
-          children: <Widget>[
-            Image.network(
-              "${item['image']}",
-              width: ScreenUtil().setWidth(375),
-            ),
-            Text(
-              "${item['name']}",
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                color: Colors.pink,
-                fontSize: ScreenUtil().setSp(26),
-              ),
-            ),
-            _priceWidget, //价格组件
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _wrapList() {
+  // 火爆商品列表
+  Widget _hotGoodsList() {
     if (widget.hotGoodsList.length > 0) {
       return Container(
         child: Wrap(
           spacing: 3,
           children: widget.hotGoodsList
-              .map((item) => _hotGoods(context, item))
+              .map((item) => _hotGoodsItem(context, item))
               .toList(),
         ),
       );
@@ -459,14 +423,67 @@ class _HotGoodsState extends State<HotGoods> {
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          _hotTitile(),
-          _wrapList(),
-        ],
+  // 火爆商品
+  Widget _hotGoodsItem(BuildContext context, Map item) {
+    // 商品价格
+    Widget _goodsPrices() {
+      return Container(
+        padding: EdgeInsets.fromLTRB(10, 5, 0, 5),
+        width: ScreenUtil().setWidth(370),
+        color: Colors.white,
+        child: Row(
+          children: <Widget>[
+            Text("￥${item['mallPrice']}"),
+            Container(width: ScreenUtil().setWidth(70)),
+            Text(
+              "￥${item['price']}",
+              style: TextStyle(
+                color: Colors.grey,
+                decoration: TextDecoration.lineThrough,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    //商品名称
+    Widget _goodsName() {
+      return Text(
+        "${item['name']}",
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(
+          color: Colors.pink,
+          fontSize: ScreenUtil().setSp(26),
+        ),
+      );
+    }
+
+    //商品图片
+    Widget _goodsPic() {
+      return Image.network(
+        "${item['image']}",
+        width: ScreenUtil().setWidth(370),
+      );
+    }
+
+    return InkWell(
+      onTap: () {
+        print("点击了热门商品");
+        Application.router.navigateTo(context, "/detail?id=${item['goodsId']}");
+      },
+      child: Container(
+        color: Colors.white,
+        margin: EdgeInsets.only(bottom: 2),
+        width: ScreenUtil().setWidth(370),
+        child: Column(
+          children: <Widget>[
+            _goodsPic(),
+            _goodsName(),
+            _goodsPrices(),
+          ],
+        ),
       ),
     );
   }

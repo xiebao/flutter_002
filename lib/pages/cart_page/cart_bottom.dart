@@ -65,7 +65,7 @@ class CartBottom extends StatelessWidget {
 
     return Container(
       height: ScreenUtil().setHeight(150),
-      width: ScreenUtil().setWidth(400),
+      width: ScreenUtil().setWidth(395),
       padding: EdgeInsets.only(top: 10, right: 15.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -86,7 +86,12 @@ class CartBottom extends StatelessWidget {
               ),
             ],
           ),
-          Text('满10元免配送费,预购免配送费'),
+          Text(
+            '满10元免配送费,预购免配送费',
+            style: TextStyle(
+              fontSize: ScreenUtil().setSp(25),
+            ),
+          ),
         ],
       ),
     );
