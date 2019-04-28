@@ -64,7 +64,7 @@ class MemberPage extends StatelessWidget {
   // 我的订单
   Widget _myOrder() {
     return Container(
-      margin: EdgeInsets.only(top: 10),
+      margin: EdgeInsets.only(top: 3),
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border(
