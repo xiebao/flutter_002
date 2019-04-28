@@ -9,7 +9,7 @@ class CartBottom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: ScreenUtil().setWidth(750),
-      height: ScreenUtil().setHeight(150),
+      height: ScreenUtil().setHeight(120),
       padding: EdgeInsets.fromLTRB(10, 5, 5, 5),
       decoration: BoxDecoration(
         color: Colors.white,

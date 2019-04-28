@@ -24,9 +24,7 @@ class CartPage extends StatelessWidget {
                 Positioned(
                   bottom: 0,
                   left: 0,
-                  child: Container(
-                    child: CartBottom(),
-                  ),
+                  child: CartBottom(),
                 ),
               ],
             );
@@ -43,17 +41,30 @@ class CartPage extends StatelessWidget {
     return Provide<CartProvide>(
       builder: (context, child, val) {
         List<CartGoodsModel> cartList = val.cartList;
-        return Container(
-          width: ScreenUtil().setWidth(750),
-          // height: ScreenUtil().setHeight(620),
-          margin: EdgeInsets.only(top: 10.0),
-          child: ListView.builder(
-            itemCount: cartList.length,
-            itemBuilder: (BuildContext context, int index) {
-              return CartItem(cartList[index]);
-            },
-          ),
-        );
+
+        if (cartList.length > 0) {
+          return Container(
+            padding: EdgeInsets.only(bottom: 60),
+            color: Colors.white,
+            child: ListView.builder(
+              itemCount: cartList.length,
+              itemBuilder: (BuildContext context, int index) {
+                return CartItem(cartList[index]);
+              },
+            ),
+          );
+        } else {
+          return Container(
+            width: ScreenUtil().setWidth(750),
+            alignment: Alignment.center,
+            child: Text(
+              "暂无商品",
+              style: TextStyle(
+                fontSize: ScreenUtil().setSp(30),
+              ),
+            ),
+          );
+        }
       },
     );
   }
